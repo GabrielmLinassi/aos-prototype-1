@@ -17,6 +17,11 @@ jobs:
 
       # ... your other build steps to produce a build directory
       # e.g. `yarn build` for create-react-app
+      - name: Install Dependencies
+        run: yarn install
+        
+      - name: Build
+        run: yarn build
 
       - name: Deploy draft to Netlify
         uses: South-Paw/action-netlify-deploy@v1.0.4
