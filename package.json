@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "npm run build:tailwind && react-scripts start",
-    "build": "cross-env NODE_ENV=production CI= npm run build:tailwind && react-scripts build",
+    "build": "cross-env NODE_ENV=production npm run build:tailwind && CI= react-scripts build",
     "build:tailwind": "tailwind build src/tailwind.css -o src/tailwind.output.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
