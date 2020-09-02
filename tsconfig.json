@@ -16,5 +16,5 @@
     "jsx": "react",
     "noImplicitAny": false
   },
-  "include": ["src", "utils/theme.tsx", "twin.d.ts"]
+  "include": ["src"]
 }
