@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import { theme } from "./utils/Theme";
+import { theme } from "./utils/theme";
 
 import { PropertiesList } from "./assets/PropertiesList";
 import { FilterableProperties } from "./Components/FilterableProperties";
