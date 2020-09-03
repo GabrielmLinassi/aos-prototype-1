@@ -1,20 +1,33 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import "./tailwind.output.css";
+import React, { useEffect, useState } from "react";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-import StyledForm from "./styles/StyledForm";
+import { theme } from "./utils/theme";
+
+import { PropertiesList } from "./assets/PropertiesList";
+import { FilterableProperties } from "./Components/FilterableProperties";
+import { Props } from "./Components/Props";
+import { Map } from './Components/Map';
+
+const getPropertiesList = () => PropertiesList;
 
 function App() {
+  const [propertiesList, setPropertiesList] = useState<Props[]>([]);
+
+  useEffect(() => {
+    const fetchPropertiesList = async () => {
+      const result = await getPropertiesList();
+      setPropertiesList(result);
+    };
+    fetchPropertiesList();
+  }, []);
+
   return (
-    <StyledForm>
-      <form>
-        <input type="text" placeholder="Full name" />
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Password" />
-        <button>Sign In</button>
-      </form>
-    </StyledForm>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <FilterableProperties products={propertiesList} />
+      <Map src ="https://www.google.com/maps/d/embed?mid=1ZmA0p3it2sfUb18rv8dydUez73sh8TXR" width={640} height={480} />
+    </ThemeProvider>
   );
 }
 
