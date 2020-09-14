@@ -1,8 +1,24 @@
+export const OfficeTypes = {
+  1: "virtual",
+  2: "coworking",
+  3: "private office",
+  4: "meeting rooms",
+};
+
+export const OfficeSizes = {
+  1: "individual",
+  2: "small",
+  3: "medium",
+  4: "large",
+};
+
 export const PropertiesList = [
   {
     id: 1,
     address: "Beacon Hill, 100 Cambridge Street",
     dailyPrice: 10,
+    type: OfficeTypes[2],
+    size: OfficeSizes[1],
     city: "Boston",
     state: "Massachusetts",
     stateCode: "MA",
@@ -12,6 +28,8 @@ export const PropertiesList = [
     id: 2,
     address: "Canal Street-North Station",
     dailyPrice: 8,
+    type: OfficeTypes[3],
+    size: OfficeSizes[2],
     city: "Boston",
     state: "Massachusetts",
     stateCode: "MA",
@@ -21,6 +39,8 @@ export const PropertiesList = [
     id: 3,
     address: "101 Arch Street",
     dailyPrice: 9,
+    type: OfficeTypes[3],
+    size: OfficeSizes[2],
     city: "Boston",
     state: "Massachusetts",
     stateCode: "MA",
@@ -30,6 +50,8 @@ export const PropertiesList = [
     id: 4,
     address: "100 Church Street",
     dailyPrice: 12,
+    type: OfficeTypes[2],
+    size: OfficeSizes[3],
     city: "New York City",
     state: "New York",
     stateCode: "NY",
@@ -39,6 +61,8 @@ export const PropertiesList = [
     id: 5,
     address: "One Liberty Plaza",
     dailyPrice: 11,
+    type: OfficeTypes[3],
+    size: OfficeSizes[1],
     city: "New York City",
     state: "New York",
     stateCode: "NY",
@@ -48,6 +72,8 @@ export const PropertiesList = [
     id: 6,
     address: "140 Broadway",
     dailyPrice: 9,
+    type: OfficeTypes[3],
+    size: OfficeSizes[1],
     city: "New York City",
     state: "New York",
     stateCode: "NY",

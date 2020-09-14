@@ -1,30 +1,42 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Props } from "./Props";
+import { TProperties } from "../types/TProperties";
 import { SearchBar } from "./SearchBar";
 import { Properties } from "./Properties";
 
 interface FilterablePropertiesProps {
-  products: Props[];
+  products: TProperties[];
 }
 
 const FilterableProperties = ({ products }: FilterablePropertiesProps) => {
   const classes = useStyles();
-  const [filterText, setFilterText] = useState("");
+
+  interface myinterface {
+    location: string;
+    type: string;
+    size: string;
+  }
+
+  const [filter, setFilter] = useState<myinterface>({
+    location: "",
+    type: "",
+    size: "",
+  });
 
   return (
     <div className={classes.wrap}>
-      <SearchBar filterText={filterText} setFilterText={setFilterText} />
-      <Properties properties={products} filterText={filterText} />
+      <SearchBar filter={filter} setFilter={setFilter} />
+      <Properties properties={products} filter={filter} />
     </div>
   );
 };
 
 const useStyles = makeStyles(() => ({
   wrap: {
-    backgroundColor: "#f2f2f2",
     padding: "20px",
+    maxWidth: "1400px",
+    margin: "0 auto",
   },
 }));
 

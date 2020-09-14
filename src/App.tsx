@@ -6,13 +6,13 @@ import { theme } from "./utils/theme";
 
 import { PropertiesList } from "./assets/PropertiesList";
 import { FilterableProperties } from "./Components/FilterableProperties";
-import { Props } from "./Components/Props";
-import { Map } from './Components/Map';
+import { TProperties } from "./types/TProperties";
+import { Map } from "./Components/Map";
 
 const getPropertiesList = () => PropertiesList;
 
 function App() {
-  const [propertiesList, setPropertiesList] = useState<Props[]>([]);
+  const [propertiesList, setPropertiesList] = useState<TProperties[]>([]);
 
   useEffect(() => {
     const fetchPropertiesList = async () => {
@@ -26,7 +26,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <FilterableProperties products={propertiesList} />
-      <Map src ="https://www.google.com/maps/d/embed?mid=1ZmA0p3it2sfUb18rv8dydUez73sh8TXR" width={640} height={480} />
+      <Map
+        src="https://www.google.com/maps/d/embed?mid=1ZmA0p3it2sfUb18rv8dydUez73sh8TXR"
+        width={640}
+        height={480}
+      />
     </ThemeProvider>
   );
 }

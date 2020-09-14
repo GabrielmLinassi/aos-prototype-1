@@ -2,19 +2,35 @@ import React, { ReactElement } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Card } from "./Property";
-import { Props } from "./Props";
+import { TProperties } from "../types/TProperties";
 
-interface IPropertiesProps {
-  properties: Props[];
-  filterText: string;
+interface myinterface {
+  location: string;
+  type: string;
+  size: string;
 }
 
-const Properties = ({ properties, filterText }: IPropertiesProps) => {
+interface IPropertiesProps {
+  properties: TProperties[];
+  filter: myinterface;
+}
+
+const Properties = ({ properties, filter }: IPropertiesProps) => {
   const classes = useStyles();
   const cards: Array<ReactElement> = [];
 
   properties.forEach((property) => {
-    if (property.city.indexOf(filterText) === -1) {
+    if (
+      property.city.toLowerCase().indexOf(filter.location.toLowerCase()) === -1
+    ) {
+      return;
+    }
+
+    if (property.type.toLowerCase().indexOf(filter.type.toLowerCase()) === -1) {
+      return;
+    }
+
+    if (property.size.toLowerCase().indexOf(filter.size.toLowerCase()) === -1) {
       return;
     }
 
@@ -27,7 +43,7 @@ const Properties = ({ properties, filterText }: IPropertiesProps) => {
 const useStyles = makeStyles(() => ({
   box: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
     gap: "3em 1em",
   },
 }));
